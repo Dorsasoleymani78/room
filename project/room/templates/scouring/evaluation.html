@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block context %}
+<div class="title">
+<center><h1 >ارزیابی دانشجویان</h1></center>
+<button><a href="{% url 'add' %}">ثبت ارزیابی جدید</a></button>
+</div>
+<table class="table table-striped table-bordered table-hover table-width60">
+    <tr>
+        <th>ارزاب</th>
+        <th>دانشجو</th>
+        <th>تاریخ</th>
+        <th>امتیاز</th>
+      
+    </tr>
+{% for item  in  evalutions %}
+
+<tr>
+        <td>{{item.appraiser}}</td>
+        <td>{{item.Student}}</td> 
+        <td>{{item.register_date}}</td>
+        <td>{{item.criterion_score}}</td>
+</tr>
+ 
+
+{% endfor %}
+</table>
+{% endblock context %}

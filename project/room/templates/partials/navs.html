@@ -1,0 +1,32 @@
+<nav class="navbar navbar-inverse navbar-expand-sm bg-dark navbar-dark sticky-top text-light"  >
+  <div class="container-fluid">
+ 
+ 
+    <ul class="nav navbar-nav navbar-right" >
+
+      {% if user.is_authenticated %}  
+           <!-- Hi {{ user.username }}! -->
+            <li class="nav-item">
+              <a class="nav-link" href="/accounts/logout/">خروج</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/scouring/Evaluation/">ارزیابی</a>
+            </li>
+      {% else %} 
+            <li class="nav-item">
+              <a class="nav-link" href="/accounts/login/">ورود</a>
+            </li>
+      {% endif %} 
+    </ul>
+    <ul class="nav navbar-nav" >
+        {% if user.is_authenticated %}  
+              <li class="nav-item" >
+              <a class="nav-link" href="/accounts/logout/">  
+                {{user.get_username}}|{{user.get_full_name}}|{{user.groups.all.0}}
+              </a>
+              </li>
+        {% endif %}
+    </ul> 
+    </div>
+ 
+  </nav>

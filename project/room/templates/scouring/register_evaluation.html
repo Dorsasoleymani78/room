@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block context %}
+<table>
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_table}}
+        <tr>
+            <td>
+                <input type="submit" value="submit"/>
+            </td>
+        </tr>
+    </form>
+</table>
+{% endblock context %}
